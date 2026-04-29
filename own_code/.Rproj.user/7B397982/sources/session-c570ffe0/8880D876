@@ -3,7 +3,7 @@
     "path": "/maps/projects/tgrlab/people/klt385/PUK/own_code/Visium_analysis.Rmd",
     "project_path": "Visium_analysis.Rmd",
     "type": "r_markdown",
-    "hash": "3158624042",
+    "hash": "2387058394",
     "contents": "",
     "dirty": false,
     "created": 1777453005977.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "19,3",
-        "scrollLine": "3"
+        "cursorPosition": "17,47",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1777455684,
+    "lastKnownWriteTime": 1777457199,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1777455684789,
+    "last_content_update": 1777457199763,
     "read_only": false,
     "read_only_alternatives": []
 }

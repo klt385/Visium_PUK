@@ -1,0 +1,37 @@
+Comment[ArrayExpressAccession]	E-MTAB-12698
+MAGE-TAB Version	1.1
+Comment[Submitted Name]	Spatial transcriptomics of human implantation sites, placenta and decidua				
+Investigation Title	Spatial transcriptomics of human implantation sites, placenta and decidua
+Experiment Description	These samples are part of a study to provide a spatially resolved single-cell multiomics map of human trophoblast differentiation in early pregnancy. Here we profiled with 10x Visium Spatial transcriptomics of the entire maternal-fetal interface including the myometrium, allowing us to resolve the full trajectory of trophoblast differentiation.
+Experimental Design	development or differentiation design
+Experimental Design Term Source REF	EFO
+Experimental Design Term Accession Number	EFO:0001746
+Experimental Factor Name	individual
+Experimental Factor Type	individual
+Experimental Factor Term Source REF
+Experimental Factor Term Accession Number
+Person Last Name	M
+Person First Name	Luz Garcia-Alonso
+Person Mid Initials
+Person Email	lg18@sanger.ac.uk
+Person Phone
+Person Fax
+Person Address	Wellcome Genome Campus, Hinxton, Cambridgeshire, CB10 1SA. UK
+Person Affiliation	Wellcome Sanger Institute
+Person Roles	submitter
+Date of Experiment	2022-01-10
+Public Release Date	2023-02-03
+Protocol Name	P-MTAB-130602	P-MTAB-130603	P-MTAB-130604	P-MTAB-130605	P-MTAB-130606
+Protocol Type	sample collection protocol	nucleic acid extraction protocol	nucleic acid library construction protocol	nucleic acid sequencing protocol	normalization data transformation protocol
+Protocol Term Source REF	EFO	EFO	EFO	EFO	EFO
+Protocol Term Accession Number	EFO_0005518	EFO_0002944	EFO_0004184	EFO_0004170	EFO_0003816
+Protocol Description	Placental/decidual blocks are derived from historical samples of first trimester hysterectomies, which include the site of placentation, the entire uterus containing the placenta, decidua and myometrium.    Tissue samples used for this study were obtained with written informed consent from all participants in accordance with the guidelines in The Declaration of Helsinki 2000. Site of collection was at the Addenbooke’s Hospital (Cambridge, UK) under ethical approval from the Cambridge Local Research Ethics Committee (04/Q0108/23), which is incorporated into the overarching ethics permission given to the Centre for Trophoblast Research biobank for the “Biology of the Human Uterus in Pregnancy and Disease Tissue Bank” at the University of Cambridge under ethical approval from the East of England-Cambridge Central Research Ethics Committee (17/EE/0151) and from the London-Hampstead Research Ethics Committee (20/LO/0115).	For 10x Genomics Visium library preparation, ten micron cryosections were cut and placed on Visium slides, then processed according to the manufacturer’s instructions. Sections were fixed with cold methanol, stained with haematoxylin and eosin and imaged on a Hamamatsu NanoZoomer S60 before permeabilisation, reverse transcription and cDNA synthesis using a template-switching protocol. Second-strand cDNA was liberated from the slide.	Single-indexed libraries were prepared using the 10x Genomics PCR-based protocol.	Libraries were sequenced (1 per lane on a HiSeq4000), aiming for 300M raw reads per sample, with the following sequencing format; read 1: 28 cycles, i7 index: 8 cycles, i5 index: 0 cycles and read 2: 91 cycles.	Visium data was analysed using the 10x software Space Ranger v1.1.0 with 10x genome GRCh38-3_0_0 as reference. All parameters where set to default.
+Protocol Hardware				Illumina HiSeq 4000
+Protocol Software
+Term Source Name	EFO
+Term Source File	http://www.ebi.ac.uk/efo/
+Term Source Version
+Comment[AEExperimentType]	spatial transcriptomics by high-throughput sequencing
+Comment[TemplateType]	Human - Single-cell sequencing
+Comment[RelatedExperiment]	E-MTAB-12421	E-MTAB-12595
+SDRF File	E-MTAB-12698.sdrf.txt

@@ -1,0 +1,65 @@
+# Visium Analysis
+
+## Library Loading:
+```{r}
+base::library(Seurat)
+base::library(ggplot2)
+base::library(patchwork)
+base::library(dplyr)
+```
+
+## WS_PLA_S9101766 Loading
+```{r}
+data <- Seurat::Load10X_Spatial(
+  data.dir = "../data/space_ranger_output/Files/WS_PLA_S9101766/", #To define data directory
+  filename = "filtered_feature_bc_matrix.h5", #Leading to correct feature_bc_matrix.h5
+  slice = "slice1", #Setting the "slice" to slice1, since we have no other slices. Correcting naming of slice is required
+)
+```
+
+## Initial overview
+```{r}
+p1 <- Seurat::VlnPlot(data, features = "nCount_Spatial", pt.size = 0.1) + NoLegend()
+p2 <- Seurat::SpatialFeaturePlot(data, features = "nCount_Spatial") + theme(legend.position = "right")
+patchwork::wrap_plots(p1, p2) # To view the plots together
+```
+
+## scTransform
+```{r}
+t_data <- Seurat::SCTransform(data, assay = "Spatial", verbose = FALSE) # 
+# I do not now what the warning is, even after looking into the function. 
+```
+
+```{r}
+p3 <- Seurat::VlnPlot(t_data, features = "nCount_Spatial", pt.size = 0.1) + NoLegend()
+p4 <- Seurat::SpatialFeaturePlot(t_data, features = "nCount_Spatial") + theme(legend.position = "right")
+patchwork::wrap_plots(p3, p4) # To view the plots together
+```
+I find it a bit strange that there seems not to be such a big difference between the non transformed and the transformed?
+
+## Showing gene heterogeniaty overview:
+```{r}
+# Three different genes were chosen on the basis of plot 1.e from Arutynyan et al (2023), 
+# since it can be seen where different genes are more or less active
+p5 <- Seurat::SpatialFeaturePlot(t_data, features = c("HLA-G", "GATA3", "CYP19A1"), alpha = c(0.1, 1))
+p5
+```
+
+## Dimensionality reduction and UMAP
+```{r}
+t_dr_data <- Seurat::RunPCA(t_data, assay = "SCT", verbose = FALSE)
+t_dr_data <- Seurat::FindNeighbors(t_dr_data, reduction = "pca", dims = 1:30)
+t_dr_data <- Seurat::FindClusters(t_dr_data, verbose = FALSE)
+t_dr_data <- Seurat::RunUMAP(t_dr_data, reduction = "pca", dims = 1:30)
+p6 <- Seurat::DimPlot(t_dr_data, reduction = "umap", label = TRUE)
+p7 <- Seurat::SpatialDimPlot(t_dr_data, label = TRUE, label.size = 3)
+p6 + p7
+```
+This means that from my analysis, 10 "distinct" expression regions are found. 
+
+
+
+
+
+
+

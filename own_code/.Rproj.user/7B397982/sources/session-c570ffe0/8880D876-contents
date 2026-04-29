@@ -9,7 +9,7 @@ base::library(patchwork)
 base::library(dplyr)
 ```
 
-## Pla_Camb9518737
+## Pla_Camb9518737 - Hrv43	6	week	embryo	placenta
 ### Data loading
 ```{r}
 Pla_Camb9518737 <- Seurat::Load10X_Spatial(
@@ -20,20 +20,66 @@ Pla_Camb9518737 <- Seurat::Load10X_Spatial(
 ```
 
 
+## Pla_HDBR9518710 P13	8 to 9	week	embryo
+### Data loading
+
+
+## WS_PLA_S9101765 P13	8 to 9	week	embryo
+### Data loading
+```{r}
+WS_PlA_S9101765 <- Seurat::Load10X_Spatial(
+  data.dir = "../data/space_ranger_output/Files/WS_PLA_S9101765/",
+  filename = "filtered_feature_bc_matrix.h5",
+  slice = "slice1"
+)
+```
+
+### Analysis
+First we can visualize the spread of the counts, of load in the correct picture:
+```{r}
+WS_PlA_S9101765_counts_plot <- VlnPlot(WS_PlA_S9101765, features = "nCount_Spatial", pt.size = 0.1)
+WS_PlA_S9101765_slide_plot <- SpatialFeaturePlot(WS_PlA_S9101765, features = "nCount_Spatial")
+wrap_plots(WS_PlA_S9101765_counts_plot, WS_PlA_S9101765_slide_plot)
+```
+
+scTRansform the data:
+```{r}
+t_WS_PlA_S9101765 <- SCTransform(WS_PlA_S9101765, assay = "Spatial", verbose = FALSE)
+```
+
+Then we can plot it again after it has been transformed:
+```{r}
+t_WS_PlA_S9101765_counts_plot <- VlnPlot(t_WS_PlA_S9101765, features = "nCount_Spatial", pt.size = 0.1)
+t_WS_PlA_S9101765_slide_plot <- SpatialFeaturePlot(t_WS_PlA_S9101765, features = "nCount_Spatial")
+wrap_plots(t_WS_PlA_S9101765_counts_plot, t_WS_PlA_S9101765_slide_plot)
+```
+
+```{r}
+p2 <- SpatialFeaturePlot(t_WS_PlA_S9101765, features = "ITGA1", alpha = c(0.1, 1))
+p2
+```
+
+```{r}
+transformed_WS_PlA_S9101765 <- RunPCA(transformed_WS_PlA_S9101765, assay = "SCT", verbose = FALSE)
+transformed_WS_PlA_S9101765 <- FindNeighbors(transformed_WS_PlA_S9101765, reduction = "pca", dims = 1:30)
+transformed_WS_PlA_S9101765 <- FindClusters(transformed_WS_PlA_S9101765, verbose = FALSE)
+transformed_WS_PlA_S9101765 <- RunUMAP(transformed_WS_PlA_S9101765, reduction = "pca", dims = 1:30)
+p1 <- DimPlot(transformed_WS_PlA_S9101765, reduction = "umap", label = TRUE)
+```
+```{r}
+p1
+```
 
 
 
-## Pla_HDBR9518710
+
+## WS_PLA_S9101766 P13	8 to 9	week	embryo
+### Data loading 
+## WS_PLA_S9101767 P13	8 to 9	week	embryo
 ### Data loading
-## WS_PLA_S9101765
+## WS_PLA_S9101768 P13	8 to 9	week	embryo
 ### Data loading
-## WS_PLA_S9101766
+## WS_PLA_S9101769 P14	8	week	embryo	placenta
 ### Data loading
-## WS_PLA_S9101767
-### Data loading
-## WS_PLA_S9101768
-### Data loading
-## WS_PLA_S9101769
-### Data loading
-## WS_PLA_S9101770
+## WS_PLA_S9101770 P14	8	week	embryo	placenta
 ### Data loading

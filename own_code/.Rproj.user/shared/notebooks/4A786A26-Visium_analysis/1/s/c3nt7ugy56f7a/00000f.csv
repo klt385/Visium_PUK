@@ -1,8 +1,0 @@
-"0","Pla_Camb9518737 <- Seurat::Load10X_Spatial(
-  data.dir = ""../data/space_ranger_output/Files/Pla_Camb9518737/"",
-  filename = ""filtered_feature_bc_matrix.h5"",
-  slice = ""I need to find out which slice it is""
-)
-"
-"2","Warning: Invalid name supplied, making object name syntactically valid. New object name is I.need.to.find.out.which.slice.it.is; see ?make.names for more details on syntax validity"
-"2","Warning: Keys should be one or more alphanumeric characters followed by an underscore, setting key from i.need.to.find.out.which.slice.it.is_ to ineedtofindoutwhichsliceitis_"
